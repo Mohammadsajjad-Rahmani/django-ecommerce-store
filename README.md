@@ -15,13 +15,13 @@ A fully functional e-commerce website built with Django.
 ![Home Page](screenshots/home-1.jpg) 
 ![Home Page](screenshots/home-2.jpg)  
 
-### 🛒 Product page
+### Product page
 ![Product Page](screenshots/product.jpg)  
 
-### 🛒 Login page
-![Product Page](screenshots/login.jpg)  
+### Login page
+![Login Page](screenshots/login.jpg)  
 
-### 🛒 articles page
+### articles page
 ![Product Page](screenshots/article.jpg)  
 
 ### 🔹 Installation  
