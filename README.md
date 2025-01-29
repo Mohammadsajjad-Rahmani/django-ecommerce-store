@@ -6,11 +6,9 @@ A fully functional e-commerce website built with Django using MVT ueature.
 ✅ Product listing with categories  
 ✅ Shopping cart & checkout system  
 ✅ Order history & user profile  
-✅ Admin panel for product management 
+✅ Admin panel for product management
 ✅ Add Review
 ✅ Regester with email 
-
-
 
 ## Screenshots  
 ### 🛍️ Home Page  
