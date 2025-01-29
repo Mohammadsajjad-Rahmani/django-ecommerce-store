@@ -1,0 +1,12 @@
+{% extends 'shared/_Layout.html' %}
+{% load poll_exteras %}
+{% block title %}
+    صحفه سبد خرید
+{% endblock %}
+
+{% block content %}
+    <div id="order-detail-content">
+    {% include 'user_panel_module/order-detail-component.html' %}
+{#vaqti include mikoni khodkar be context on sahfe dastresi dare context jayi ke in include ro fara mikhone#}
+    </div>
+{% endblock %}

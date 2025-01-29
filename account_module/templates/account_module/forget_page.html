@@ -1,0 +1,34 @@
+{% extends 'shared/_Layout.html' %}
+
+{% block title %} صحفه فراموشی رمز عبور {% endblock %}
+
+{% block content %}
+    <div class="container">
+        <section id="form"><!--form-->
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <div class="login-form"><!--login form-->
+                        <h2>ورود به حساب کاربـری :</h2>
+                        <form action="{% url 'forget-password-page' %}" method="post">
+                            {% csrf_token %}
+                            {#                            {{login_form }}#}
+                            {{ forget_form.email.label }}
+                            {{ forget_form.email }}
+                            {{ forget_form.email.errors }}
+
+
+                            {#							<span>#}
+                            {#								<input type="checkbox" class="checkbox">#}
+                            {#								مرا بخاطـر بسپـار#}
+                            {#							</span>#}
+                            {#							<span>#}
+                            {#								<a href="forget-password.html">رمـز عبـور خود را فراموش کرده ام</a>#}
+                            {#							</span>#}
+                            <button type="submit" class="btn btn-default">تغییر کلمه عبور</button>
+                        </form>
+                    </div><!--/login form-->
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

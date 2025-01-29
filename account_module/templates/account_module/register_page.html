@@ -1,0 +1,38 @@
+{% extends 'shared/_Layout.html' %}
+
+{% block title %} صحفه ثبت نام {% endblock %}
+
+{% block content %}
+<div class="container">
+		<section id="form"><!--form-->
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="login-form"><!--login form-->
+						<h2>ورود به حساب کاربـری :</h2>
+						<form action="{% url 'register-page' %}" method="post">
+                            {% csrf_token %}
+{#                            {{ register_form }}#}
+                            {{ register_form.email.label }}
+                            {{ register_form.email }}
+                            {{ register_form.email.errors }}
+                            {{ register_form.password.label }}
+                            {{ register_form.password }}
+                            {{ register_form.password.errors }}
+                            {{ register_form.confirm_password.label }}
+                            {{ register_form.confirm_password }}
+                            {{ register_form.confirm_password.errors }}
+{#							<span>#}
+{#								<input type="checkbox" class="checkbox">#}
+{#								مرا بخاطـر بسپـار#}
+{#							</span>#}
+{#							<span>#}
+{#								<a href="forget-password.html">رمـز عبـور خود را فراموش کرده ام</a>#}
+{#							</span>#}
+							<button type="submit" class="btn btn-default">ورود</button>
+						</form>
+					</div><!--/login form-->
+				</div>
+			</div>
+		</section>
+	</div>
+{% endblock %}

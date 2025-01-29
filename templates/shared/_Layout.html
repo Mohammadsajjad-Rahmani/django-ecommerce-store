@@ -1,0 +1,31 @@
+{% load  render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    {% include 'shared/header_references.html' %}
+{#    chon static hastan in reference ha va nizi be vakeshi data nadaran bejaye django partial render az include estefade mikonim #}
+{% block header_references %}
+	
+{% endblock %}
+</head><!--/head-->
+<body>
+{#    {% render_partial 'site_header_component' %}#}
+    {% render_partial 'Home_module.views.site_header' %}
+{#     az render partial baraye modiriate qesmataye mokhtakef estefade mikonim nokteii ke hast ine ke baraye modiriat va vakeshi etelaat az database estefade mikonim#}
+{#    va khob maziyatesh nesbat be include hamine toye include bayad data ham befrestim vali in fucntionale#}
+    {% block content %} {% endblock %}
+    {% render_partial 'Home_module.views.site_footer' %}
+    {% include 'shared/footer_references.html' %}
+{% block footer_references %}
+	
+{% endblock %}
+{#in header va footer references toe block haro bayad bad az include ha berizi bekhatere inke aval include haro load kone va badan in block haro #}
+</body>
+</html>

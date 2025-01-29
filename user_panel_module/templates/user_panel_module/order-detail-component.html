@@ -1,0 +1,101 @@
+{% load poll_exteras %}
+{% if order.order_detail_set.all %}
+    <section id="cart_items">
+        <div class="container">
+            <div class="breadcrumbs">
+                <ol class="breadcrumb">
+                    <li><a href="#">خانـه</a></li>
+                    <li class="active">پرداخت</li>
+                </ol>
+            </div><!--/breadcrums-->
+            <div class="table-responsive cart_info">
+                <table class="table table-condensed">
+                    <thead>
+                    <tr class="cart_menu">
+                        <td class="image">کـالا</td>
+                        <td class="description"></td>
+                        <td class="price">قیمت</td>
+                        <td class="quantity">تعـداد</td>
+                        <td class="total">مجمـوع</td>
+                        <td></td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for detail in order.order_detail_set.all %}
+                        <tr class="container">
+                            <td class="cart_product">
+                                <a href=""><img src="{{ detail.product.image.url }}" alt="" width="150px"></a>
+                            </td>
+                            <td class="cart_description">
+                                {#                                <h4><a href="">کالای شمـاره {{ forloop.counter }}</a></h4>#}
+                                <h4><a href="" class="on-line-text" id="on-line-text">{{ detail.product.title }}</a>
+                                </h4>
+                                {#                                <a href="#" onclick="OnLineClass()">ادامه</a>#}
+                                <p>شناسـه : {{ detail.product.id }}</p>
+                            </td>
+                            <td class="cart_price">
+                                <p>{{ detail.product.price|three_digit_currency }}</p>
+                            </td>
+                            <td class="cart_quantity">
+                                <div class="cart_quantity_button">
+                                    <a class="cart_quantity_up tag-a cursor-pointer"
+                                       onclick="ChangeOrderCount({{ detail.id }},'increase')"> + </a>
+                                    <input class="cart_quantity_input " type="text" name="quantity"
+                                           value="{{ detail.count }}"
+                                           autocomplete="off" size="2">
+                                    <a  class="cart_quantity_down tag-a cursor-pointer"
+                                       onclick="ChangeOrderCount({{ detail.id }},'decrease')"> - </a>
+                                </div>
+                            </td>
+                            <td class="cart_total">
+                                <p class="cart_total_price">{% multiply detail.count detail.product.price %}</p>
+                                {#<p class="cart_total_price">{{ detail.get_multiply|three_digit_currency }}</p>#}
+                                {#نحوه استفاده سیمپل تگ رو ببین همینچا #}
+                            </td>
+                            <td class="cart_delete">
+                                <button class="btn btn-danger cart_quantity_delete" href=""
+                                        onclick="RemoveOrder({{ detail.id }})"><i
+                                        class="fa fa-times"></i></button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    <section id="do_action">
+        <div class="container">
+            {#        <div class="heading">#}
+            {#            <h3>نهایی کردن سفارش یا ادامه خریـد ؟! </h3>#}
+            {#            <p>در صورتیکـه کوپن خریـد و یا کد تخفیف داریـد میتوانید از آن استفاده نمایید | با استفاده از بخش#}
+            {#                مربوطه#}
+            {#                هزینه حمل و نقل خود را محاسبـه نمایید</p>#}
+            {#        </div>#}
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="total_area">
+                        <ul>
+                            <li>مجمـوع سبـد خریـد <span>{{ sum|three_digit_currency }}</span></li>
+                            {#							<li>مالیـات (9%) <span>182.700 ريال</span></li>#}
+                            {#							<li>هزینـه حمل و نقـل <span>رایـگان</span></li>#}
+                            {#							<li>مجمـوع <span>2.212.700 ريال</span></li>#}
+                        </ul>
+                        <a class="btn btn-default update" href="shop.html">به روز رسانی سبـد خریـد </a>
+                        <a class="btn btn-default check_out" href="checkout.html">پرداخت</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% else %}
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-info">
+                    سبد خرید شما خالی است .
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

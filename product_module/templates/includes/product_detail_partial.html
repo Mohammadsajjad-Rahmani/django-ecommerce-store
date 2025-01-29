@@ -1,0 +1,42 @@
+{% load thumbnail %}
+{% load poll_exteras %}
+<div class="col-sm-{{ col }} card">
+    <div class="product-image-wrapper">
+        <div class="single-products">
+            <div class="productinfo text-center">
+                {% if product.image %}
+                    {#                 <img src="{{ product.image.url }}" alt="">#}
+                    {% thumbnail product.image "268x250" crop="center" quality=80 as image %}
+
+                        <img src="{{ image.url }}" alt="">
+{#                        #thumbnail image haro cash mikone va az on poshe mikhone va injori nist ke bekhad harbar ax ro load kone#}
+
+                    {% endthumbnail %}
+                {% else %}
+                    <img src="/static/images/shop/product.jpg" alt="">
+                {% endif %}
+                <h2>{{ product.price | three_digit_currency }} </h2>
+                <p>{{ product.short_description}}</p>
+                <a href="#" class="btn btn-default add-to-cart"><i
+                        class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
+            </div>
+            <div class="product-overlay">
+                <div class="overlay-content">
+                    <h2>{{ product.price | three_digit_currency }} </h2>
+                    <p>{{ product.short_description }}</p>
+                    <a href="#" class="btn btn-default add-to-cart"><i
+                            class="fa fa-shopping-cart"></i>افزودن به سبـد خریـد</a>
+                </div>
+            </div>
+        </div>
+        <div class="choose">
+            <ul class="nav nav-pills nav-justified">
+                <li><a href="{% url 'product_detail' slug=product.slug %}"><i class="fa fa-plus-square"></i>مشاهده
+                    جزئیات</a></li>
+                {#                <li><a href="{% url 'product_detail' pk=product.id %}"><i class="fa fa-plus-square"></i>مشاهده جزئیات</a></li>#}
+                {#                <li><a href="{{ product.get_absolute_url }}"><i class="fa fa-plus-square"></i>مشاهده جزئیات</a></li>#}
+                <li><a href=""><i class="fa fa-plus-square"></i>مقایسه</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

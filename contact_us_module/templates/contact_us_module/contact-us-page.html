@@ -1,0 +1,142 @@
+{% extends 'shared/_Layout.html' %}
+
+{% block title %}
+    تماس با ما
+{% endblock %}
+
+{% block content %}
+    <div id="contact-page" class="container">
+        <div class="bg">
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="contact-form">
+                    <h2 class="title text-center">با ما در ارتباط باشیـد</h2>
+                    <div class="status alert alert-success" style="display: none"></div>
+                    <form id="main-contact-form" class="contact-form row" name="contact-form"
+                          method="post" {% url 'contact-us' %}>
+                        {% csrf_token %}
+                        {#                        {% for field in form %}#}
+                        {#                            <div class="col-md-12 form-group">#}
+                        {#                                {{ field.label }}#}
+                        {#                                {{ field }}#}
+                        {#                                {{ field.text }}#}
+                        {#                            </div>#}
+                        {#                        {% endfor %}#}
+                        <div class="col-md-6 form-group">
+                            {{ form.email.label }}
+                            {{ form.email }}
+                            {{ form.email.text }}
+                            {% if form.email.value == '' %}
+                                {{ form.email.errors }}
+                            {% endif %}
+                        </div>
+                        <div class="col-md-6 form-group">
+                            {{ form.full_name.label }}
+                            {{ form.full_name }}
+                            {{ form.full_name.text }}
+                            {% if form.full_name.value == '' %}
+                                {{ form.full_name.errors }}
+                            {% endif %}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            {{ form.title.label }}
+                            {{ form.title }}
+                            {{ form.title.text }}
+                            {% if form.title.value == '' %}
+                                {{ form.title.errors }}
+                            {% endif %}
+                        </div>
+                        <div class="col-md-12 form-group">
+                            {{ form.message.label }}
+                            {{ form.message }}
+                            {{ form.message.text }}
+                            {% if form.message.value == '' %}
+                                {{ form.message.errors }}
+                            {% endif %}
+                        </div>
+
+                        {#                <div class="col-md-6 form-group {% if form.errors %} text-danger {% endif %}">#}
+                        {#                    {{ form.full_name.label }}#}
+                        {#                    {{ form.full_name }}#}
+                        {#                    {{ form.full_name.errors }}#}
+                        {#                </div>#}
+                        {#                <div class="col-md-6 form-group">#}
+                        {#                    {{ form.email.label }}#}
+                        {#                    {{ form.email }}#}
+                        {#                </div>#}
+                        {#                <div class="col-md-12 form-group">#}
+                        {#                    {{ form.subject.label }}#}
+                        {#                    {{ form.subject }}#}
+                        {#                </div>#}
+                        {#                <div class="col-md-12 form-group">#}
+                        {#                    {{ form.message.label }}#}
+                        {#                    {{ form }}#}
+                        {#                </div>#}
+
+                        {#                            {{ form }}#}
+                        {#                            {% if empty_email %}#}
+                        {#                                <p class="alert alert-info">Email Field is empty</p>#}
+                        {#                            {% endif %}#}
+                        {#				            <div class="form-group col-md-6">#}
+                        {#				                <input type="text" name="name" class="form-control"  placeholder="نام">#}
+                        {#				            </div>#}
+                        {#				            <div class="form-group col-md-6">#}
+                        {#				                <input type="email" name="email" class="form-control"  placeholder="ایمیـل">#}
+                        {#				            </div>#}
+                        {#				            <div class="form-group col-md-12">#}
+                        {#				                <input type="text" name="subject" class="form-control"  placeholder="موضـوع">#}
+                        {#				            </div>#}
+                        {#				            <div class="form-group col-md-12">#}
+                        {#				                <textarea name="message" id="message"  class="form-control" rows="8" placeholder="پیغـام شمـا"></textarea>#}
+                        {#				            </div>#}
+                        {#				            <div class="form-group col-md-12">#}
+                        {#				                <input type="submit" name="submit" class="btn btn-primary pull-right" value="ارسـال">#}
+                        <button type="submit" class="btn btn-primary pull-right">ارسال</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="contact-info">
+                    <h2 class="title text-center">اطلاعات تماس</h2>
+                    <address>
+                        <p>{{ site_setting.address }}</p>
+                        <p>تلفن تماس : {{ site_setting.phone_number }} </p>
+                        {% if site_setting.fax %}
+                            <p>فکس : {{ site_setting.fax }}</p>
+                        {% endif %}
+                        {% if site_setting.email %}
+                            <p style="font-family: tahoma;">ایمیـل : {{ site_setting.email }}</p>
+                        {% endif %}
+                    </address>
+                    <div class="social-networks">
+                        <h2 class="title text-center">شبکـه های اجتـماعی</h2>
+                        <span class="socials-share share">
+									<ul>
+										<a href="#">
+											<li>
+												<label>بلـه</label>
+												<img src="/static/images/product-details/Bale.png">
+											</li>
+										</a>
+										<a href="#">
+											<li>
+												<label>سـروش</label>
+												<img src="/static/images/product-details/Soroush.png">
+											</li>
+										</a>
+										<a href="#">
+											<li>
+												<label>اینستاگرام</label>
+												<img src="/static/images/product-details/Instagram.png">
+											</li>
+										</a>
+									</ul>
+								</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

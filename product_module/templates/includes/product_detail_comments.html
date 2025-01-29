@@ -1,0 +1,16 @@
+{% extends 'shared/_Layout.html' %}
+{% load jalali_tags %}
+<div class="col-sm-12">
+    {% for comment in comments %}
+        <ul id="comments_area">
+            <li><a href=""><i class="fa fa-user"></i>{{ comment.user.username }}
+            </a></li>
+            <li><a href=""><i class="fa fa-clock-o"></i>{{ comment.created_time }}
+            </a></li>
+            <li><a href=""><i
+                    class="fa fa-calendar-o"></i>{{ comment.created_date | to_jalali }}
+            </a></li>
+        </ul>
+        <p>{{ comment.text }}</p>
+    {% endfor %}
+</div>
