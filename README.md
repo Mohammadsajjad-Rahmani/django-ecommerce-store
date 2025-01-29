@@ -1,5 +1,5 @@
 # Django Ecommerce Store  
-A fully functional e-commerce website built with Django.  
+A fully functional e-commerce website built with Django using MVT ueature.  
 
 ## Features  
 ✅ User authentication (Signup/Login)  
@@ -16,13 +16,13 @@ A fully functional e-commerce website built with Django.
 ![Home Page](screenshots/home-2.jpg)  
 
 ### Product page
-![Product Page](screenshots/product.jpg)  
+![Product Page](screenshots/productpage.jpg)  
 
 ### Login page
 ![Login Page](screenshots/login.jpg)  
 
 ### articles page
-![Product Page](screenshots/article.jpg)  
+![Product Page](screenshots/articles.jpg)  
 
 ### 🔹 Installation  
 1. Clone the repository:  
